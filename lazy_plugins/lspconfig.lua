@@ -8,7 +8,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
-		vim.api.nvim_create_autocmd({
+		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 			callback = function(event)
 				local map = function(keys, func, desc)
@@ -60,7 +60,7 @@ return {
 					end, "[T]oggle Inlay [H]ints")
 				end
 			end,
-		}, "LspAttach")
+		})
 
 		--NOTE lsp servers and clients are able to communicate to each other what features they support.
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
