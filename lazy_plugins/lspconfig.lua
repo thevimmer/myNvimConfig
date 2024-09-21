@@ -69,9 +69,7 @@ return {
 		local servers = {
 			clangd = {},
 			gopls = {},
-			pyright = {},
 			rust_analyzer = {},
-			tsserver = {},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -88,6 +86,9 @@ return {
 
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
+			"clangd",
+			"gopls",
+			"rust_analyzer",
 			"stylua",
 			"texlab",
 		})
